@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "title": "India's First Agentic AI Solution in HR",
+        "date": "2025-07-10",
+        "category": "AutomateReporting.com Case Study",
+        "excerpt": "How autonomous AI agents are revolutionizing enterprise automation through intelligent decision-making systems and multi-agent workflows. This article explores the technical architecture and business impact of AutomateReporting.com.",
+        "content": "<p>How autonomous AI agents are revolutionizing enterprise automation through intelligent decision-making systems and multi-agent workflows. This article explores the technical architecture and business impact of AutomateReporting.com.</p><p>Key topics include agent orchestration, real-time analytics, and scalability.</p>",
+        "slug": "indias-first-agentic-ai-solution-in-hr"
+    },
+    {
+        "id": 2,
+        "title": "Teaching AI at TISS Mumbai",
+        "date": "2025-07-05",
+        "category": "Academic Perspective",
+        "excerpt": "Insights from serving as Visiting AI Faculty at TISS Mumbai, shaping the next generation of AI-driven HR leaders with practical frameworks.",
+        "content": "<p>Insights from serving as Visiting AI Faculty at TISS Mumbai, shaping the next generation of AI-driven HR leaders with practical frameworks.</p><p>The curriculum focuses on AI ethics, predictive analytics, and HR automation.</p>",
+        "slug": "teaching-ai-at-tiss-mumbai"
+    },
+    {
+        "id": 3,
+        "title": "$1.6M Cost Optimization in Renewable Energy",
+        "date": "2025-06-28",
+        "category": "Fortune 500 Case Study",
+        "excerpt": "A deep dive into how AI-driven solutions delivered $1.6M in cost savings for a renewable energy leader, with lessons for enterprise transformation.",
+        "content": "<p>A deep dive into how AI-driven solutions delivered $1.6M in cost savings for a renewable energy leader, with lessons for enterprise transformation.</p><p>Topics include predictive maintenance, workforce analytics, and cost optimization strategies.</p>",
+        "slug": "cost-optimization-renewable-energy"
+    }
+]

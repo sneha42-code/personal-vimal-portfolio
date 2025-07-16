@@ -1,0 +1,168 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Vimal Singh's AI training programs for executives and HR professionals, including Agentic AI and predictive analytics.">
+    <meta name="keywords" content="AI Training, Agentic AI, HR Transformation, Predictive Analytics, Vimal Singh">
+    <title>Training - Vimal Singh</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+    <nav class="bg-blue-600 dark:bg-blue-800 p-4">
+        <ul class="flex space-x-6 justify-center">
+            <li><a href="index.html" class="text-white hover:underline">Home</a></li>
+            <li><a href="about.html" class="text-white hover:underline">About</a></li>
+            <li><a href="training.html" class="text-white hover:underline">Training</a></li>
+            <li><a href="insights.html" class="text-white hover:underline">Insights</a></li>
+            <li><a href="blog.html" class="text-white hover:underline">Blog</a></li>
+            <li><a href="contact.html" class="text-white hover:underline">Contact</a></li>
+        </ul>
+    </nav>
+    <section class="max-w-4xl mx-auto py-12">
+        <h1 class="text-4xl font-bold text-center">Signature Executive Training Programs</h1>
+        <div class="mt-8 space-y-8">
+            <div>
+                <h2 class="text-2xl font-bold">⭐ Agentic AI for Enterprise Transformation</h2>
+                <p class="font-bold">FLAGSHIP PROGRAM</p>
+                <p class="mt-2">Next-generation autonomous AI implementation. Based on India's first Agentic AI solution in HR. Master the future of enterprise automation through intelligent autonomous agents.</p>
+                <ul class="list-disc pl-6 mt-2">
+                    <li>Designing & deploying intelligent AI agents</li>
+                    <li>Multi-agent orchestration frameworks</li>
+                    <li>Autonomous decision-making systems</li>
+                    <li>Real-world AutomateReporting.com platform access</li>
+                </ul>
+                <a href="contact.html" class="mt-4 inline-block bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">Request Program Details</a>
+            </div>
+            <div>
+                <h2 class="text-2xl font-bold">Executive AI Leadership</h2>
+                <p class="font-bold">1-DAY CXO PROGRAM</p>
+                <p class="mt-2">C-suite guide to AI strategy & governance. Transform from AI awareness to AI leadership. Build strategic frameworks for enterprise-wide AI adoption.</p>
+                <ul class="list-disc pl-6 mt-2">
+                    <li>Strategic AI planning & portfolio management</li>
+                    <li>Leading transformation across functions</li>
+                    <li>Change management for AI at scale</li>
+                    <li>90-day implementation roadmap</li>
+                </ul>
+                <a href="contact.html" class="mt-4 inline-block bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">Book CXO Program</a>
+            </div>
+            <div>
+                <h2 class="text-2xl font-bold">AI-Powered HR Transformation</h2>
+                <p class="font-bold">2.5-DAY INTENSIVE PROGRAM</p>
+                <p class="mt-2">From traditional HR to AI-driven strategic leadership. Based on real implementations at major manufacturing companies, renewable energy organizations, and other Fortune 500 enterprises.</p>
+                <ul class="list-disc pl-6 mt-2">
+                    <li>Predictive workforce analytics</li>
+                    <li>AI-powered talent acquisition</li>
+                    <li>Employee experience optimization</li>
+                    <li>40% reduction in administrative tasks</li>
+                </ul>
+                <a href="contact.html" class="mt-4 inline-block bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">Transform HR</a>
+            </div>
+            <div>
+                <h2 class="text-2xl font-bold">AI for HR Leaders</h2>
+                <p class="font-bold">COMPREHENSIVE OVERVIEW</p>
+                <p class="mt-2">Foundational AI training for HR professionals. Perfect starting point for HR teams beginning their AI journey with practical applications.</p>
+                <ul class="list-disc pl-6 mt-2">
+                    <li>Foundational AI concepts for HR</li>
+                    <li>Intelligent recruitment & talent management</li>
+                    <li>AI-powered employee experience</li>
+                    <li>Ethics and governance in HR AI</li>
+                </ul>
+                <a href="contact.html" class="mt-4 inline-block bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">Start AI Journey</a>
+            </div>
+            <div>
+                <h2 class="text-2xl font-bold">Digital Transformation Leadership</h2>
+                <p class="font-bold">3-DAY EXECUTIVE MASTERCLASS</p>
+                <p class="mt-2">Master the art of leading digital transformation. Drawing from successful transformations at renewable energy companies, Aditya Birla Group, and other industry leaders.</p>
+                <ul class="list-disc pl-6 mt-2">
+                    <li>Digital strategy formulation & execution</li>
+                    <li>Change management for digital initiatives</li>
+                    <li>Technology stack selection & integration</li>
+                    <li>Building digital capabilities at scale</li>
+                </ul>
+                <a href="contact.html" class="mt-4 inline-block bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">Lead Transformation</a>
+            </div>
+            <div>
+                <h2 class="text-2xl font-bold">Predictive Workforce Analytics</h2>
+                <p class="font-bold">2-DAY SPECIALIZED WORKSHOP</p>
+                <p class="mt-2">ML-powered human capital optimization. Revolutionize HR through predictive analytics and data-driven decision making.</p>
+                <ul class="list-disc pl-6 mt-2">
+                    <li>Building predictive models for turnover</li>
+                    <li>Performance forecasting & talent analytics</li>
+                    <li>Strategic workforce planning using AI/ML</li>
+                    <li>Real-time analytics implementation</li>
+                </ul>
+                <a href="contact.html" class="mt-4 inline-block bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">Master Analytics</a>
+            </div>
+        </div>
+        <div class="mt-12">
+            <h2 class="text-2xl font-bold text-center">Program Credentials & Value Proposition</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                <div>
+                    <p class="font-bold">$1.6M+ Cost Savings</p>
+                    <p>Documented across AI implementations</p>
+                </div>
+                <div>
+                    <p class="font-bold">80+ CXO Network</p>
+                    <p>Trained executives across industries</p>
+                </div>
+                <div>
+                    <p class="font-bold">Fortune 500 Experience</p>
+                    <p>Real transformations at scale</p>
+                </div>
+            </div>
+            <div class="flex justify-center space-x-4 mt-6">
+                <a href="contact.html" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">Request Corporate Quote</a>
+                <a href="#" class="bg-gray-600 text-white py-2 px-4 rounded hover:bg-gray-700">Download Program Catalog</a>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-gray-800 text-white text-center py-6">
+        <p>© 2025 Vimal Singh. AI Training Expert for HR Professionals.</p>
+        <div class="flex justify-center space-x-4 mt-2">
+            <a href="#" class="hover:underline">LinkedIn</a>
+            <a href="#" class="hover:underline">Email</a>
+            <p>Mumbai, India</p>
+        </div>
+    </footer>
+</body>
+</html>
